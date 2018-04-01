@@ -2,6 +2,7 @@ package com.app.step_definitions;
 
 import java.util.concurrent.TimeUnit;
 
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,10 +23,12 @@ public class Hooks {
 
 	@After
 	public void tearDown(Scenario scenario) {
+		if(scenario.isFailed()) {
 		//taking a screenshot
 		final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
 		//adding the screenshot to the report
 		scenario.embed(screenshot, "image/png");
+		}
 		Driver.closeDriver();
 
 

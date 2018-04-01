@@ -1,18 +1,19 @@
-
+@testing1
 Feature:  Note on Dashboard
-@testing
+
+Background: 
+Given  I logged into suiteCRM
+
+
 Scenario: Post a note on Dashboard
-Given  I logged into suiteCRM
 When I post "Hello Everyone"
 Then Post should be displayed
-	Then I logout from application
+#Then I logout from application
 	
 	
-	@testing
-	Scenario: Post another note on Dashboard
-Given  I logged into suiteCRM
-When I post "Hello Everyone"
+Scenario: Post another note on Dashboard
+When I post "Hello all"
 Then Post should be displayed
-	Then I logout from application
+#Then I logout from application
 	
 

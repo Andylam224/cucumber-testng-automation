@@ -1,6 +1,10 @@
 package com.app.pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +19,15 @@ public SuiteCRMDashboardPage() {
 	this.driver=Driver.getDriver();
 	PageFactory.initElements(driver, this);
 }
+
+@FindBy(linkText="Contacts")
+public WebElement contactsLink;
+
+@FindBy(xpath = "(//input[@id='query_string'])[5]")
+public WebElement searchInput;
+
+@FindBy(xpath = "(//button[@id='searchbutton'])[3]")
+public WebElement searchButton;
 
 @FindBy(linkText="SALES")
 public WebElement sales;
@@ -46,6 +59,19 @@ public WebElement profileMenu;
 @FindBy(xpath="(//a[@id='logout_link'])[3]")
 public WebElement logoutLink;
 
+@FindBy(linkText="CREATE")
+public WebElement createLink;
+
+@FindBy(linkText="Create Task")
+public WebElement createTask;
+
+@FindBy(linkText="Create Contact")
+public WebElement createContact;
+
+
+
+
+
 public void logout() {
 	Actions action=new Actions(driver);
 	action.moveToElement(profileMenu);
@@ -60,6 +86,27 @@ public void postNote(String note) {
 	postField.sendKeys(note);
 	post.click();
 	
+}
+
+public void clickCreateTask() {
+	Actions actions=new Actions(driver);
+	actions.moveToElement(createLink).perform();
+	
+	BrowserUtils.waitForVisibility(createTask, 5);
+	createTask.click();
+}
+public void clickContacts() {
+	  Actions action=new Actions(driver);
+	  action.moveToElement(sales).perform();
+	  contactsLink.click();
+
+}
+public List<WebElement> topMenuOptions(String name){
+	////a[.='Collaboration']/..//li/a
+	//sales, marketing, activities, collaboration, support, all
+	String xpath="//a[.='"+name+"']/..//li/a";
+	
+	return driver.findElements(By.xpath(xpath));
 }
 
 

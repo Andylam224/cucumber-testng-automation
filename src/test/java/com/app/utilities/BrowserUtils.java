@@ -15,12 +15,18 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BrowserUtils {
+	
+	public static void hover(WebElement element) {
+		Actions action=new Actions(Driver.getDriver());
+		action.moveToElement(element).perform();
+	}
 	
 	public static List<String>  getElementText(By locator){
 		 List<WebElement> elems=Driver.getDriver().findElements(locator);
@@ -34,6 +40,24 @@ public class BrowserUtils {
 		return elemTexts;
 		}
 
+	
+	/**
+	 * returns a list of string from a list of elements
+	 * ignores any elements with no text
+	 * @param elements
+	 * @return
+	 */
+	public static List<String>  getElementText(List<WebElement> elements){
+		 
+		List<String>elemTexts=new ArrayList<>();
+		for(WebElement  el: elements){
+		if(!el.getText().isEmpty()){
+			elemTexts.add(el.getText());
+		}
+
+		}
+		return elemTexts;
+		}
 
 	public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);

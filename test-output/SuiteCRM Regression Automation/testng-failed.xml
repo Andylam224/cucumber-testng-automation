@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="2" name="Failed suite [SuiteCRM Regression Automation]">
+  <test thread-count="5" verbose="2" name="Automated tests(failed)">
+    <classes>
+      <class name="com.app.runners.CukesRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="1"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.app.runners.CukesRunner -->
+    </classes>
+  </test> <!-- Automated tests(failed) -->
+</suite> <!-- Failed suite [SuiteCRM Regression Automation] -->
