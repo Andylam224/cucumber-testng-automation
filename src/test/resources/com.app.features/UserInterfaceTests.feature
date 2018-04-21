@@ -1,6 +1,6 @@
 #name the feature based on the application
 Feature: User Interface for SuiteCRM
-
+@Regression
 Scenario: CRM Name and Modules
 	Given I logged into suiteCRM
 	Then CRM name should be SuiteCRM

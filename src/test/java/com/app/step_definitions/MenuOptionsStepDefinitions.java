@@ -49,7 +49,7 @@ public void following_menu_options_should_be_visisble_for_Collaboration(String m
    //capture list of webelements
 	List<WebElement> topMenuOptions=dashboard.topMenuOptions(menu);
 	//get their text in list
-	List<String> topMenuOptionsString=BrowserUtils.getElementText(topMenuOptions);
+	List<String> topMenuOptionsString=BrowserUtils.getElementsText(topMenuOptions);
 	//compare the list with options
 	assertEquals(topMenuOptionsString.size(),options.size(),"Number of expected menu options did not match");
 	//compare the options are same text in the same index

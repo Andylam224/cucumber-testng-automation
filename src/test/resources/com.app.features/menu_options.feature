@@ -1,6 +1,6 @@
 Feature: SugarCRM menu options
 
-@f&f
+@smoke
 Scenario: Verify Collaboratino menu options
 Given I logged into suiteCRM
 When I hover over the Collaboration menu

@@ -8,7 +8,7 @@ Feature: Creating contacts
     And I enter the department "IT"
     When click on the save button
     Then I should see contact information for "Bilbo Baggins"
-
+@tagg
   Scenario: Create contact using CREATE page
     When I logged into suiteCRM
     And I open the create contact page
